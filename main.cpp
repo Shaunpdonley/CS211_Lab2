@@ -27,7 +27,27 @@ int main() {
   shuffle(test, capacity);
   display(test, capacity);
 
-  insertion_sort(test, capacity);
+  int first_set[5];
+  int second_set[5];
+  for (int i = 0; i < 5; i++) {
+    first_set[i] = rand() % 100;
+    second_set[i] = rand() % 100;
+  }
+
+  cout << "First set: " << endl;
+  for (int i = 0; i < 5; i++) {
+    cout << first_set[i] << " ";
+  }
+
+  cout << endl;
+
+  cout << "Second set: " << endl;
+  for (int i = 0; i < 5; i++) {
+    cout << second_set[i] << " ";
+  }
+
+  insertion_sort(first_set, 5);
+  insertion_sort(second_set, 5);
 
   //Expand the main function with calls to the shuffle and sorting functions.
   
