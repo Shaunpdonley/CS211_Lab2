@@ -24,14 +24,21 @@ void insertion_sort(int a[], int n) {
 
 
     // Defines comparison condition; compares each index to the one before it
-    while (j >= 0 && a[j] < reference) {
+    while (j >= 0 && a[j] > reference) {
+      cout << "Performing comparison" << endl;
+      cout << "Performing swap" << endl;
+      cout << "i, j = " << i << " " << j << endl;
       comparisons++;
       a[j + 1] = a[j];
       j--;
       swaps++;
+      cout << "Numbers swapped: " << a[j] << " and " << a[j + 1] << endl;
+
     }
+
     comparisons++; // Increment for the final comparison that fails
     a[j + 1] = reference;
+    display(a, n);
 
     //keeps running tally of swaps and comparisons through all iterations
     total_swaps += swaps;
@@ -39,10 +46,13 @@ void insertion_sort(int a[], int n) {
 
     /* displays number of swaps and comparisons made on the
      * current iteration */
-    cout << "Pass #" << i << ": ";
-    display(a, n);
-    cout << "Comparisons: " << comparisons << ", Swaps: " << swaps << endl;
+
   }
+  cout << "Final array: " << endl;
+  for (int i = 0; i < n; i++) {
+    cout << a[i] << " ";
+  }
+  cout << endl;
   cout << "Total comparisons: " << total_comparisons << endl;
   cout << "Total swaps: " << total_swaps << endl;
 }
