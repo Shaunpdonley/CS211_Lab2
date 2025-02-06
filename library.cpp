@@ -9,7 +9,7 @@ void display(const int a[], int n) {
   cout << endl;
 }
 
-// This function sorts the first n elements using insertion sort.
+// This function sorts the first n elements using insertion sort with at most one swap per pass.
 void insertion_sort(int a[], int n) {
   int total_swaps = 0;
   int total_comparisons = 0;
@@ -21,30 +21,34 @@ void insertion_sort(int a[], int n) {
     int comparisons = 0;
     cout << "Pass: " << i << endl;
 
-    while (j >= 0 && a[j] > reference) {
+    // Find the correct position for the reference element
+    while (j >= 0 && a[j] > reference) { // Corrected comparison condition
       cout << "Performing comparison" << endl;
       comparisons++;
-      cout << "Performing swap" << endl;
-      a[j + 1] = a[j];
       j--;
+      // Perform a single swap if necessary
+
+    }
+    if (j + 1 != i) {
+      cout << "Performing swap" << endl;
+      swap(a[j + 1], a[i]);
       swaps++;
     }
 
     comparisons++; // Increment for the final comparison that fails
-    a[j + 1] = reference;
+
+
 
     total_swaps += swaps;
     total_comparisons += comparisons;
 
-    cout << "Swaps: " << swaps << endl;
-    cout << "Comparisons: " << comparisons << endl;
+    cout << "Swaps: " << total_swaps << endl;
+    cout << "Comparisons: " << total_comparisons << endl;
     display(a, n);
   }
 
   cout << "Final array: " << endl;
   display(a, n);
-  cout << "Total comparisons: " << total_comparisons << endl;
-  cout << "Total swaps: " << total_swaps << endl;
 }
 
 void shuffle(int a[], int n) {
