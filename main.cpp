@@ -27,6 +27,9 @@ int main() {
   shuffle(test, capacity);
   display(test, capacity);
 
+  cout << endl;
+  cout << "Part 2" << endl;
+
   int first_set[5];
   int second_set[5];
   for (int i = 0; i < 5; i++) {
@@ -69,7 +72,7 @@ int main() {
       new_array[i] = rand() % 100;
     }
 
-    insertion_sort(new_array, capacity);
+    selection_sort(new_array, capacity);
     cout << "Continue? y or n ";
     char response;
     cin >> response;
