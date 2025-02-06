@@ -1,6 +1,6 @@
 #include <iostream>
-#include <cstdlib>  
-#include <ctime>    
+#include <cstdlib>
+#include <ctime>
 #include "library.h"
 using namespace std;
 
@@ -10,7 +10,7 @@ int main() {
   cin >> capacity;
   int test[capacity];
 
-  unsigned seed_value = time(NULL); 
+  unsigned seed_value = time(NULL);
   srand(seed_value);
   for (unsigned i = 0; i < capacity; i++) {
     test[i] = rand() % 100;
@@ -46,9 +46,40 @@ int main() {
     cout << second_set[i] << " ";
   }
 
+  cout << endl;
+
   insertion_sort(first_set, 5);
   insertion_sort(second_set, 5);
 
+  cout << endl;
+
+  cout << "Part 3" << endl;
+
+  bool cont = true;
+
+  while (cont == true) {
+    cout << "Enter capacity size: ";
+    cin >> capacity;
+    int new_array[capacity];
+
+    cout << "Array size is " << capacity << endl;
+
+    srand(seed_value);
+    for (unsigned i = 0; i < capacity; i++) {
+      new_array[i] = rand() % 100;
+    }
+
+    insertion_sort(new_array, capacity);
+    cout << "Continue? y or n ";
+    char response;
+    cin >> response;
+    if (response == 'n') {
+      cont = false;
+    }
+  }
+
+
+
   //Expand the main function with calls to the shuffle and sorting functions.
-  
+
 }
